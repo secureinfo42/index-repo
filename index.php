@@ -19,19 +19,13 @@ $HOST = $_SERVER["SERVER_NAME"];
 
 
 function print_item($item) {
-	global $PROT, $HOST;
-	$quer = $_SERVER["REQUEST_URI"]; # query
-	$href = "$HOST/$quer/$item";
-	$href = str_replace("///","/",$href);
-	$href = str_replace("//","/",$href);
-	$href = "$PROT://$href";
 
 	$icon="📘"; // 📂";
 	if( is_file($item) ) $icon="🔖";
 	echo <<< EOD
 	<tr>
 		<td nowrap>&nbsp;&nbsp;&nbsp;</td>
-		<td width='100%' class='category'>$icon &nbsp;<a href='$href' class='item'>$item</a></td>
+		<td width='100%' class='category'>$icon &nbsp;<a href="$item" class='item'>$item</a></td>
 	</tr>
 EOD;
 }
